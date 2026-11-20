@@ -1,0 +1,54 @@
+---
+import Card from "../../../components/Card.astro";
+---
+
+<section id="projects" class="projects">
+  <h2>Our Projects</h2>
+  <p class="subtitle">Some of the solutions we can create for your business.</p>
+
+  <div class="project-grid">
+    <Card
+      title="Business Website"
+      desc="A modern website that helps businesses build their online presence."
+    />
+
+    <Card
+      title="Appointment System"
+      desc="A scheduling system that makes booking and managing appointments easier."
+    />
+
+    <Card
+      title="Management System"
+      desc="A digital solution that helps organize business operations and records."
+    />
+  </div>
+</section>
+
+<style>
+  .projects {
+    padding: 80px 8%;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    color: #666;
+    margin-bottom: 35px;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

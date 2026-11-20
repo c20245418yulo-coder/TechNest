@@ -1,0 +1,66 @@
+---
+import Card from "../../../components/Card.astro";
+---
+
+<section id="services">
+    <div class="heading">
+        <p>WHAT WE OFFER</p>
+        <h2>Our Services</h2>
+        <span>Smart technology solutions for your business.</span>
+    </div>
+
+    <div class="cards">
+        <Card
+            title="Web Development"
+            desc="Creating modern, responsive, and user-friendly websites."
+        />
+
+        <Card
+            title="Software Development"
+            desc="Building customized software to simplify business operations."
+        />
+
+        <Card
+            title="IT Support"
+            desc="Providing reliable technical assistance and troubleshooting."
+        />
+    </div>
+</section>
+
+<style>
+    section {
+        padding: 80px 10%;
+    }
+
+    .heading {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .heading p {
+        letter-spacing: 3px;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 36px;
+        margin: 15px 0;
+    }
+
+    .heading span {
+        color: #666;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    @media (max-width: 768px) {
+        .cards {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

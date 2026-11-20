@@ -1,70 +1,90 @@
-<header>
-    <nav>
-        <a href="#home" class="brand">
-            <img src="/images/logo.png" alt="TechNest Logo" />
-            <span>TechNest</span>
-        </a>
+<header class="header">
+  <a href="/" class="logo">
+    <img src="/images/logo.png" alt="" />
+    <span>TechNest</span>
+  </a>
 
-        <div class="links">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#process">Process</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <style>
-    header {
-        background: white;
-        padding: 18px 8%;
-        border-bottom: 1px solid #eee;
-        position: sticky;
-        top: 0;
-        z-index: 100;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 12px;
+    z-index: 100;
+    width: min(94%, 1280px);
+    margin: 12px auto;
+    padding: 14px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    background: rgba(15, 38, 67, 0.58);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #f4f8ff;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .logo img {
+    width: 64px;
+    height: 45px;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+
+  nav {
+    display: flex;
+    gap: 25px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #f4f8ff;
+    font-size: 14px;
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover {
+    color: #69d7f2;
+  }
+
+  nav a:focus-visible,
+  .logo:focus-visible {
+    outline: 2px solid #69d7f2;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .header {
+      width: calc(100% - 24px);
+      flex-direction: column;
+      gap: 15px;
+      padding: 14px 18px;
     }
 
     nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
     }
-
-    .brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 24px;
-        font-weight: bold;
-    }
-
-    .brand img {
-        width: 45px;
-        height: 45px;
-        object-fit: contain;
-    }
-
-    .links {
-        display: flex;
-        gap: 25px;
-    }
-
-    .links a:hover {
-        color: gray;
-    }
-
-    @media (max-width: 768px) {
-        nav {
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .links {
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-    }
+  }
 </style>

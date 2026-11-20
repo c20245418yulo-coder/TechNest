@@ -2,23 +2,45 @@
 interface Props {
     title: string;
     desc: string;
+    image?: string;
+    imageAlt?: string;
 }
 
-const { title, desc } = Astro.props;
+const { title, desc, image, imageAlt = title } = Astro.props;
 ---
 
-<div class="card">
-    <h3>{title}</h3>
-    <p>{desc}</p>
+<div class={`card${image ? " card--image" : ""}`}>
+    {image && <img class="card-image" src={image} alt={imageAlt} loading="lazy" decoding="async" />}
+    <div class={image ? "card-content" : undefined}>
+        <h3>{title}</h3>
+        <p>{desc}</p>
+    </div>
 </div>
 
 <style>
     .card {
         background: #ffffff;
+        color: #111111;
         padding: 30px;
         border: 1px solid #dddddd;
         border-radius: 12px;
         transition: 0.3s;
+    }
+
+    .card--image {
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .card-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+    .card-content {
+        padding: 24px;
     }
 
     .card:hover {

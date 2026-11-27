@@ -21,9 +21,9 @@ const { title, desc, image, imageAlt = title } = Astro.props;
     .card {
         background: var(--card-bg);
         color: var(--text);
-        padding: 30px;
+        padding: 28px;
         border: 1px solid var(--line);
-        border-radius: 8px;
+        border-radius: 2px;
         transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -37,6 +37,7 @@ const { title, desc, image, imageAlt = title } = Astro.props;
         width: 100%;
         aspect-ratio: 16 / 9;
         object-fit: cover;
+        border-bottom: 1px solid var(--line);
     }
 
     .card-content {
@@ -44,7 +45,7 @@ const { title, desc, image, imageAlt = title } = Astro.props;
     }
 
     .card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-3px);
         box-shadow: var(--card-shadow);
     }
 

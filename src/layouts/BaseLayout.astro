@@ -8,9 +8,6 @@ import Header from "../components/Header.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>TechNest | Building Ideas Through Technology</title>
-    <script is:inline>
-      document.documentElement.dataset.theme = "light";
-    </script>
   </head>
 
   <body>
@@ -23,57 +20,58 @@ import Header from "../components/Header.astro";
 </html>
 
 <style is:global>
-  :root,
-  :root[data-theme="dark"] {
-    color-scheme: dark;
-    --page-bg: #000000;
-    --hero-bg: #050505;
-    --section-bg: #090909;
-    --about-bg: #000000;
-    --contact-bg: #050505;
-    --text: #f4f8ff;
-    --muted: #c6d6e8;
-    --accent: #35a7ff;
-    --accent-soft: #69d7f2;
-    --button-bg: #1677ff;
-    --button-hover: #0b62d6;
-    --surface: #101010;
-    --card-bg: #101010;
-    --form-bg: #101010;
-    --input-bg: #050505;
-    --input-text: #f4f8ff;
-    --input-border: #426080;
-    --line: rgba(255, 255, 255, 0.18);
-    --glass-bg: rgba(0, 0, 0, 0.78);
-    --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-    --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
-    --card-hover-shadow: 0 12px 30px rgba(22, 119, 255, 0.24);
-  }
-
-  :root[data-theme="light"] {
+  :root {
     color-scheme: light;
-    --page-bg: #ffffff;
-    --hero-bg: #ffffff;
-    --section-bg: #ffffff;
-    --about-bg: #ffffff;
-    --contact-bg: #ffffff;
-    --text: #132238;
-    --muted: #5c6b7a;
-    --accent: #1677ff;
-    --accent-soft: #1677ff;
-    --button-bg: #1677ff;
-    --button-hover: #0b62d6;
+    --page-bg: #f7f7f5;
+    --hero-bg: #f7f7f5;
+    --section-bg: #f7f7f5;
+    --about-bg: #efefec;
+    --contact-bg: #f7f7f5;
+    --text: #171717;
+    --muted: #696966;
+    --accent: #171717;
+    --accent-soft: #696966;
+    --button-bg: #171717;
+    --button-hover: #333333;
+    --button-text: #ffffff;
     --surface: #ffffff;
     --card-bg: #ffffff;
     --form-bg: #ffffff;
     --input-bg: #ffffff;
-    --input-text: #132238;
-    --input-border: #ccd6e0;
-    --line: rgba(19, 34, 56, 0.12);
-    --glass-bg: rgba(255, 255, 255, 0.82);
-    --glass-shadow: 0 12px 40px rgba(19, 34, 56, 0.12);
-    --card-shadow: 0 8px 20px rgba(19, 34, 56, 0.10);
-    --card-hover-shadow: 0 12px 30px rgba(22, 119, 255, 0.16);
+    --input-text: #171717;
+    --input-border: #d7d7d2;
+    --line: #deded8;
+    --glass-bg: rgba(247, 247, 245, 0.92);
+    --glass-shadow: none;
+    --card-shadow: none;
+    --card-hover-shadow: none;
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page-bg: #171717;
+    --hero-bg: #171717;
+    --section-bg: #1d1d1d;
+    --about-bg: #222222;
+    --contact-bg: #171717;
+    --text: #f1f1ee;
+    --muted: #aaa9a4;
+    --accent: #f1f1ee;
+    --accent-soft: #aaa9a4;
+    --button-bg: #f1f1ee;
+    --button-hover: #d8d8d3;
+    --button-text: #171717;
+    --surface: #242424;
+    --card-bg: #202020;
+    --form-bg: #202020;
+    --input-bg: #171717;
+    --input-text: #f1f1ee;
+    --input-border: #494944;
+    --line: #393936;
+    --glass-bg: rgba(23, 23, 23, 0.92);
+    --glass-shadow: none;
+    --card-shadow: none;
+    --card-hover-shadow: none;
   }
 
   * {
@@ -90,7 +88,7 @@ import Header from "../components/Header.astro";
     margin: 0;
     background-color: var(--page-bg);
     color: var(--text);
-    font-family: Arial, sans-serif;
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 

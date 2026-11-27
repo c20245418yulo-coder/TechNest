@@ -53,24 +53,19 @@ import Card from "../../../components/Card.astro";
 
 <style>
   .projects {
-    padding: 80px 8%;
-    text-align: center;
+    padding: 96px 8%;
     color: var(--text);
+    border-bottom: 1px solid var(--line);
   }
 
   h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: clamp(36px, 5vw, 52px);
+    letter-spacing: -0.04em;
+    margin: 0 0 10px;
   }
 
   h2::after {
-    display: block;
-    width: 36px;
-    height: 2px;
-    margin: 12px auto 0;
-    border-radius: 999px;
-    background: var(--line);
-    content: "";
+    display: none;
   }
 
   .subtitle {

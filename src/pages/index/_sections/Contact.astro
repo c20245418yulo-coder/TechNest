@@ -27,26 +27,27 @@
 
 <style>
     .contact-section {
-        padding: 80px 10%;
+        padding: 96px 8%;
         background-color: var(--contact-bg);
         color: var(--text);
     }
 
     .heading {
-        margin-bottom: 40px;
-        text-align: center;
+        max-width: 720px;
+        margin: 0 auto 48px;
     }
 
     .heading p {
         font-size: 13px;
         font-weight: bold;
-        letter-spacing: 3px;
+        letter-spacing: 2.5px;
         color: var(--accent-soft);
     }
 
     h2 {
-        margin: 15px 0;
-        font-size: 36px;
+        margin: 12px 0;
+        font-size: clamp(36px, 5vw, 52px);
+        letter-spacing: -0.04em;
     }
 
     .heading span {
@@ -62,7 +63,7 @@
         background: var(--form-bg);
         color: var(--text);
         border: 1px solid var(--line);
-        border-radius: 12px;
+        border-radius: 2px;
     }
 
     .field {
@@ -101,9 +102,9 @@
         justify-self: start;
         padding: 14px 24px;
         border: 0;
-        border-radius: 6px;
+        border-radius: 2px;
         background: var(--button-bg);
-        color: #fff;
+        color: var(--button-text);
         font: inherit;
         cursor: pointer;
     }

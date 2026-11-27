@@ -20,17 +20,12 @@
 
 <style>
     .hero {
-        min-height: 550px;
+        min-height: 620px;
         display: flex;
         align-items: center;
-        padding: 80px 10%;
-        background-color: #ffffff;
-        --text: #132238;
-        --muted: #5c6b7a;
-        --accent: #1677ff;
-        --accent-soft: #1677ff;
-        --button-bg: #1677ff;
-        --button-hover: #0b62d6;
+        padding: 90px 8%;
+        background-color: var(--hero-bg);
+        border-bottom: 1px solid var(--line);
         color: var(--text);
     }
 
@@ -40,25 +35,28 @@
 
     .subtitle {
         font-size: 13px;
-        letter-spacing: 3px;
+        letter-spacing: 2.5px;
         font-weight: bold;
         margin-bottom: 20px;
         color: var(--accent-soft);
     }
 
     h1 {
-        font-size: clamp(40px, 6vw, 65px);
-        line-height: 1.2;
-        margin-bottom: 20px;
+        font-size: clamp(44px, 7vw, 78px);
+        line-height: 1.02;
+        letter-spacing: -0.055em;
+        margin: 0 0 28px;
     }
 
     h1 span {
-        color: var(--accent);
+        color: var(--muted);
+        font-weight: 400;
     }
 
     .description {
         color: var(--muted);
-        line-height: 1.8;
+        line-height: 1.7;
+        font-size: 18px;
         max-width: 600px;
         margin-bottom: 30px;
     }
@@ -66,9 +64,9 @@
     .hero-btn {
         display: inline-block;
         background: var(--button-bg);
-        color: white;
+        color: var(--button-text);
         padding: 15px 28px;
-        border-radius: 6px;
+        border-radius: 2px;
         text-decoration: none;
         transition: 0.3s;
     }

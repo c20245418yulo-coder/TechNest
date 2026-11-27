@@ -13,8 +13,40 @@
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+      Dark mode
+    </button>
   </div>
 </header>
+
+<script is:inline>
+  (() => {
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem("technest-theme");
+    if (savedTheme === "light" || savedTheme === "dark") {
+      root.dataset.theme = savedTheme;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.querySelector(".theme-toggle");
+      if (!toggle) return;
+
+      const updateToggle = () => {
+        const isDark = root.dataset.theme === "dark";
+        toggle.textContent = isDark ? "Light mode" : "Dark mode";
+        toggle.setAttribute("aria-label", `Switch to ${isDark ? "light" : "dark"} mode`);
+      };
+
+      updateToggle();
+      toggle.addEventListener("click", () => {
+        const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+        root.dataset.theme = nextTheme;
+        localStorage.setItem("technest-theme", nextTheme);
+        updateToggle();
+      });
+    });
+  })();
+</script>
 
 <style>
   .header {
@@ -22,15 +54,16 @@
     justify-content: space-between;
     align-items: center;
     position: sticky;
-    top: 12px;
+    top: 0;
     z-index: 100;
-    width: min(94%, 1280px);
-    margin: 12px auto;
-    padding: 12px 24px;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.96);
-    box-shadow: 0 6px 24px rgba(19, 34, 56, 0.06);
+    width: 100%;
+    margin: 0 auto;
+    padding: 18px max(5%, calc((100% - 1280px) / 2));
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--glass-bg);
+    box-shadow: none;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
   }
@@ -38,7 +71,7 @@
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 24px;
   }
 
   .logo {
@@ -52,10 +85,10 @@
   }
 
   .logo img {
-    width: 64px;
-    height: 45px;
+    width: 44px;
+    height: 44px;
     object-fit: contain;
-    border-radius: 6px;
+    border-radius: 2px;
   }
 
   nav {
@@ -74,8 +107,24 @@
     color: var(--accent-soft);
   }
 
+  .theme-toggle {
+    padding: 9px 13px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  .theme-toggle:hover {
+    background: var(--about-bg);
+  }
+
   nav a:focus-visible,
-  .logo:focus-visible {
+  .logo:focus-visible,
+  .theme-toggle:focus-visible {
     outline: 2px solid var(--accent-soft);
     outline-offset: 4px;
     border-radius: 4px;
@@ -83,7 +132,7 @@
 
   @media (max-width: 768px) {
     .header {
-      width: calc(100% - 24px);
+      width: 100%;
       flex-direction: column;
       gap: 15px;
       padding: 14px 18px;

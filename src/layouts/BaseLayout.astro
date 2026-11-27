@@ -1,12 +1,17 @@
 ---
 import Header from "../components/Header.astro";
+
 ---
 
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>TechNest | Building Ideas Through Technology</title>
+    <script is:inline>
+      const savedTheme = localStorage.getItem("technest-theme");
+      document.documentElement.dataset.theme = savedTheme === "dark" ? "dark" : "light";
+    </script>
   </head>
 
   <body>
@@ -14,24 +19,101 @@ import Header from "../components/Header.astro";
     <main>
       <slot />
     </main>
+    
   </body>
 </html>
 
 <style is:global>
+  :root,
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page-bg: #000000;
+    --hero-bg: #050505;
+    --section-bg: #090909;
+    --about-bg: #000000;
+    --contact-bg: #050505;
+    --text: #f4f8ff;
+    --muted: #c6d6e8;
+    --accent: #35a7ff;
+    --accent-soft: #69d7f2;
+    --button-bg: #1677ff;
+    --button-hover: #0b62d6;
+    --surface: #101010;
+    --card-bg: #101010;
+    --form-bg: #101010;
+    --input-bg: #050505;
+    --input-text: #f4f8ff;
+    --input-border: #426080;
+    --line: rgba(255, 255, 255, 0.18);
+    --glass-bg: rgba(0, 0, 0, 0.78);
+    --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+    --card-hover-shadow: 0 12px 30px rgba(22, 119, 255, 0.24);
+  }
+
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --page-bg: #ffffff;
+    --hero-bg: #ffffff;
+    --section-bg: #f7f9fc;
+    --about-bg: #ffffff;
+    --contact-bg: #f7f9fc;
+    --text: #132238;
+    --muted: #5c6b7a;
+    --accent: #1677ff;
+    --accent-soft: #1677ff;
+    --button-bg: #1677ff;
+    --button-hover: #0b62d6;
+    --surface: #ffffff;
+    --card-bg: #ffffff;
+    --form-bg: #ffffff;
+    --input-bg: #ffffff;
+    --input-text: #132238;
+    --input-border: #ccd6e0;
+    --line: rgba(19, 34, 56, 0.12);
+    --glass-bg: rgba(255, 255, 255, 0.82);
+    --glass-shadow: 0 12px 40px rgba(19, 34, 56, 0.12);
+    --card-shadow: 0 8px 20px rgba(19, 34, 56, 0.10);
+    --card-hover-shadow: 0 12px 30px rgba(22, 119, 255, 0.16);
+  }
+
   * {
     box-sizing: border-box;
   }
 
   html {
     scroll-behavior: smooth;
-    background: #071629;
+    background-color: var(--page-bg);
   }
 
   body {
     min-height: 100vh;
     margin: 0;
-    background: linear-gradient(180deg, #071629 0%, #0b1f3a 55%, #071629 100%);
-    color: #f4f8ff;
+    background-color: var(--page-bg);
+    color: var(--text);
     font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body,
+  header,
+  section,
+  footer,
+  button,
+  input,
+  textarea,
+  .card {
+    transition-property: background-color, color, border-color, box-shadow;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>

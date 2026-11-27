@@ -4,14 +4,27 @@
     <span>TechNest</span>
   </a>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="header-actions">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button
+      class="theme-toggle"
+      type="button"
+      data-theme-toggle
+      aria-label="Switch to dark mode"
+      aria-pressed="false"
+    >
+      <span data-theme-icon aria-hidden="true">🌙</span>
+      <span data-theme-label>Dark Mode</span>
+    </button>
+  </div>
 </header>
 
 <style>
@@ -25,12 +38,18 @@
     width: min(94%, 1280px);
     margin: 12px auto;
     padding: 14px 28px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--line);
     border-radius: 18px;
-    background: rgba(15, 38, 67, 0.58);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    background: var(--glass-bg);
+    box-shadow: var(--glass-shadow);
     -webkit-backdrop-filter: blur(18px);
     backdrop-filter: blur(18px);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
 
   .logo {
@@ -38,7 +57,7 @@
     align-items: center;
     gap: 10px;
     text-decoration: none;
-    color: #f4f8ff;
+    color: var(--text);
     font-size: 22px;
     font-weight: bold;
   }
@@ -57,20 +76,51 @@
 
   nav a {
     text-decoration: none;
-    color: #f4f8ff;
+    color: var(--text);
     font-size: 14px;
     transition: color 0.2s ease;
   }
 
   nav a:hover {
-    color: #69d7f2;
+    color: var(--accent-soft);
+  }
+
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 9px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  }
+
+  .theme-toggle:hover {
+    transform: translateY(-1px);
+    border-color: var(--accent);
   }
 
   nav a:focus-visible,
-  .logo:focus-visible {
-    outline: 2px solid #69d7f2;
+  .logo:focus-visible,
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--accent-soft);
     outline-offset: 4px;
     border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .theme-toggle,
+    nav a {
+      transition: none;
+    }
   }
 
   @media (max-width: 768px) {
@@ -81,6 +131,13 @@
       padding: 14px 18px;
     }
 
+    .header-actions {
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
     nav {
       flex-wrap: wrap;
       justify-content: center;
@@ -88,3 +145,30 @@
     }
   }
 </style>
+
+<script>
+  const themeToggle = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
+  const themeIcon = themeToggle?.querySelector<HTMLElement>("[data-theme-icon]");
+  const themeLabel = themeToggle?.querySelector<HTMLElement>("[data-theme-label]");
+
+  if (!themeToggle || !themeIcon || !themeLabel) {
+    throw new Error("The theme toggle is missing required elements.");
+  }
+
+  const updateThemeControl = () => {
+    const isDark = document.documentElement.dataset.theme !== "light";
+    themeIcon.textContent = isDark ? "☀️" : "🌙";
+    themeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
+    themeToggle.setAttribute("aria-label", `Switch to ${isDark ? "light" : "dark"} mode`);
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+  };
+
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    document.documentElement.dataset.theme = nextTheme;
+    localStorage.setItem("technest-theme", nextTheme);
+    updateThemeControl();
+  });
+
+  updateThemeControl();
+</script>

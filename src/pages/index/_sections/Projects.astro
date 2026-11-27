@@ -4,28 +4,49 @@ import Card from "../../../components/Card.astro";
 
 <section id="projects" class="projects">
   <h2>Our Projects</h2>
-  <p class="subtitle">Some of the solutions we can create for your business.</p>
+  <p class="subtitle">Selected web, software, database, and IT projects.</p>
 
   <div class="project-grid">
     <Card
-      title="Business Website Development"
-      desc="A responsive business website with a polished layout and clear user experience."
-      image="/images/projects/business-website.jpg"
-      imageAlt="Laptop displaying a business analytics website"
+      title="Miles Yulo | Personal Portfolio"
+      desc="A Computer Studies student portfolio presenting systems work, digital experiences, and website projects."
+      image="/images/projects/Pasted%20Image.png"
+      imageAlt="Red and yellow personal portfolio for Computer Studies student Miles Yulo"
     />
 
     <Card
-      title="Software Development"
-      desc="Custom software and dashboard interfaces built around your workflow."
-      image="/images/projects/software-development.jpg"
-      imageAlt="Code and application interface displayed on a computer"
+      title="Clinic Database Management"
+      desc="A clinic database with tables for appointments, doctors, patients, payments, prescriptions, and related records."
+      image="/images/projects/Pasted%20Image%202.png"
+      imageAlt="phpMyAdmin showing the tables in a clinic database"
     />
 
     <Card
-      title="IT Support and Solutions"
-      desc="Reliable hands-on support for computer hardware and technology."
-      image="/images/projects/it-support.jpg"
-      imageAlt="Technician working on computer hardware"
+      title="Wency Arevalo | BSIS Portfolio"
+      desc="An information systems portfolio featuring web creation, AI automation, database work, and systems analysis."
+      image="/images/projects/Pasted%20Image%203.png"
+      imageAlt="Dark portfolio homepage for BSIS student Wency Arevalo"
+    />
+
+    <Card
+      title="Miles Yulo | Web Developer Portfolio"
+      desc="A personal portfolio presenting web development skills, goals, services, and contact options."
+      image="/images/projects/Pasted%20Image%204.png"
+      imageAlt="Light web developer portfolio with profile and skills panels"
+    />
+
+    <Card
+      title="Laravel Appointment Dashboard"
+      desc="A clinic administration dashboard for reviewing appointments, patient records, prescriptions, and visit statuses."
+      image="/images/projects/Pasted%20Image%205.png"
+      imageAlt="Dark Laravel dashboard displaying a clinic appointment list"
+    />
+
+    <Card
+      title="FreshFold Laundry Website"
+      desc="A laundry service website with business hours, location information, and a customer contact form."
+      image="/images/projects/Pasted%20Image%206.png"
+      imageAlt="FreshFold laundry service contact page with location and inquiry form"
     />
   </div>
 </section>
@@ -34,7 +55,7 @@ import Card from "../../../components/Card.astro";
   .projects {
     padding: 80px 8%;
     text-align: center;
-    color: #f4f8ff;
+    color: var(--text);
   }
 
   h2 {
@@ -42,18 +63,43 @@ import Card from "../../../components/Card.astro";
     margin-bottom: 10px;
   }
 
+  h2::after {
+    display: block;
+    width: 52px;
+    height: 3px;
+    margin: 14px auto 0;
+    border-radius: 999px;
+    background: var(--accent);
+    content: "";
+  }
+
   .subtitle {
-    color: #c6d6e8;
+    color: var(--muted);
     margin-bottom: 35px;
   }
 
   .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
   }
 
-  @media (max-width: 768px) {
+  .project-grid :global(.card) {
+    border-color: var(--line);
+  }
+
+  .project-grid :global(.card:hover) {
+    box-shadow: var(--card-hover-shadow);
+  }
+
+  @media (max-width: 900px) {
+    .project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 600px) {
     .project-grid {
       grid-template-columns: 1fr;
     }

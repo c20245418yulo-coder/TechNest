@@ -28,8 +28,8 @@
 <style>
     .contact-section {
         padding: 80px 10%;
-        background: linear-gradient(135deg, #0b1f3a, #123b66);
-        color: #f4f8ff;
+        background-color: var(--contact-bg);
+        color: var(--text);
     }
 
     .heading {
@@ -41,7 +41,7 @@
         font-size: 13px;
         font-weight: bold;
         letter-spacing: 3px;
-        color: #69d7f2;
+        color: var(--accent-soft);
     }
 
     h2 {
@@ -50,7 +50,7 @@
     }
 
     .heading span {
-        color: #c6d6e8;
+        color: var(--muted);
     }
 
     .contact-form {
@@ -59,9 +59,9 @@
         max-width: 600px;
         margin: 0 auto;
         padding: 32px;
-        background: #fff;
-        color: #111;
-        border: 1px solid #ddd;
+        background: var(--form-bg);
+        color: var(--text);
+        border: 1px solid var(--line);
         border-radius: 12px;
     }
 
@@ -79,9 +79,10 @@
     textarea {
         width: 100%;
         padding: 12px;
-        border: 1px solid #ccc;
+        border: 1px solid var(--input-border);
         border-radius: 6px;
-        color: #111;
+        background: var(--input-bg);
+        color: var(--input-text);
         font: inherit;
     }
 
@@ -91,8 +92,8 @@
 
     input:focus,
     textarea:focus {
-        border-color: #1677ff;
-        outline: 2px solid #1677ff;
+        border-color: var(--accent);
+        outline: 2px solid var(--accent);
         outline-offset: 1px;
     }
 
@@ -101,14 +102,14 @@
         padding: 14px 24px;
         border: 0;
         border-radius: 6px;
-        background: #1677ff;
+        background: var(--button-bg);
         color: #fff;
         font: inherit;
         cursor: pointer;
     }
 
     button:hover {
-        background: #0b62d6;
+        background: var(--button-hover);
     }
 
     @media (max-width: 600px) {

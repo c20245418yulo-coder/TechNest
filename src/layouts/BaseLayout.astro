@@ -9,8 +9,7 @@ import Header from "../components/Header.astro";
     <meta name="viewport" content="width=device-width" />
     <title>TechNest | Building Ideas Through Technology</title>
     <script is:inline>
-      const savedTheme = localStorage.getItem("technest-theme");
-      document.documentElement.dataset.theme = savedTheme === "dark" ? "dark" : "light";
+      document.documentElement.dataset.theme = "light";
     </script>
   </head>
 
@@ -55,9 +54,9 @@ import Header from "../components/Header.astro";
     color-scheme: light;
     --page-bg: #ffffff;
     --hero-bg: #ffffff;
-    --section-bg: #f7f9fc;
+    --section-bg: #ffffff;
     --about-bg: #ffffff;
-    --contact-bg: #f7f9fc;
+    --contact-bg: #ffffff;
     --text: #132238;
     --muted: #5c6b7a;
     --accent: #1677ff;
